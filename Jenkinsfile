@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            label "docker && new"
-            image "hashicorp/terraform:${env.TF_VERSION}"
-            args "--entrypoint '/bin/busybox'"
-        }
+agent {
+    node {
+        label 'terraform-v0.12-ecs'
     }
+}
     options {
         timeout(time: 1, unit: "HOURS")
         buildDiscarder(logRotator(numToKeepStr: "5"))
