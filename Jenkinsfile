@@ -20,8 +20,8 @@ agent {
     stage('Validations'){
         parallel {
             stage('Validate Terraform configurations') {
-            print "Validating The TF Files"
                 steps {
+                    print "Validating The TF Files"
                     sh 'find . -type f -name "*.tf" -exec dirname {} \\;|sort -u | while read m; do (terraform validate "$m" && echo "√ $m") || exit 1 ; done'
                 }
             }
