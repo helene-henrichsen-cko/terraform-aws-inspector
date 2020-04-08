@@ -14,19 +14,19 @@ agent {
     stages{
     stage('Terraform Format Check') {
         steps {
-            sh 'print "Terraform FMT"'
+            print "Terraform FMT"
             sh 'terraform fmt -write=false'
         }
     }
     stage('Terraform Init') {
         steps {
-            sh 'print "Terraform Initialize"'
+            print "Terraform Initialize"
             sh 'terraform init -backend=false -input=false'
         }
     }
     stage('Validate Terraform configurations') {
         steps {
-            sh 'print "Validating The TF Files"'
+            print "Validating The TF Files"
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
