@@ -36,7 +36,7 @@ agent {
             }
             stage('Check Terraform configurations with tf docs'){
                 steps {
-                    sh  "if [[ -n \"\$(terraform-docs markdown . -write=false")\ ]]; then echo \"Documentation need to be added, run 'terraform-docs markdown . and add to README.md' to fix\"; exit 1; fi"
+                    sh  "terraform-docs markdown ."
                 }
             }
         }
