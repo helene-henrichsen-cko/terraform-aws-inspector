@@ -12,12 +12,18 @@ agent {
         TF_IN_AUTOMATION = 1
     }
     stages{
-    stage('Terraform Format Check') {
-        steps {
-            print "Terraform FMT"
-            sh 'terraform fmt -write=false'
+    stage('Run terraform fmt') {
+         {
+            def fmtExitCode = sh(returnStatus: true, script: """terraform fmt -check=true""")
+            echo("Terraform fmt exit status was ${fmtExitCode}")
+            if (fmtExitCode != 0) {
+                notifyBuildResult channel: "${channel}", color: 'danger', message: "Terraform fmt failed"
+                currentBuild.result = 'FAILURE'
+                error("'terraform fmt' failed")
+            }
         }
     }
+
     stage('Terraform Init') {
         steps {
             print "Terraform Initialize"
