@@ -14,30 +14,27 @@ agent {
     stages{
     stage('Terraform Format Check') {
         steps {
-            print "Terraform FMT"
             sh 'terraform fmt -write=false'
         }
     }
     stage('Terraform Init') {
         steps {
-            print "Terraform Initialize"
             sh 'terraform init -backend=false -input=false'
         }
     }
     stage('Validate Terraform configurations') {
         steps {
-            print "Validating The TF Files"
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
     stage('Check Terraform configurations with tflint'){
         steps {
-            sh 'tflint'
+            sh 'tflint .'
         }
     }
-    stage('Check Terraform configurations with tf docs'){
+    stage('Check Terraform configurations with terraform docs'){
         steps {
-            sh 'terraform-docs markdown .'
+            sh 'terraform-docs md .'
         }
     }
 }
