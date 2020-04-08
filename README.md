@@ -1,4 +1,4 @@
-#AWS Inspector Module
+# AWS Inspector Module
 
 Terraform module which creates the AWS Inspector Service.
 
@@ -12,7 +12,7 @@ For example: Unintended network accessibility of EC2 instances.
 
 Terraform >= 0.12
 
-##Usage
+## Usage
 
 ```
 module "aws_inspector" {

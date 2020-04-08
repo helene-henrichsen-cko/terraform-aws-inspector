@@ -2,6 +2,11 @@ terraform {
   required_version = ">= 0.12"
 }
 
+provider "aws" {
+  version = "~> 2.0"
+  region  = var.region
+}
+
 resource "aws_inspector_resource_group" "inspector_rg" {
   tags = {
     "var.tag" = true
