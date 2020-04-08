@@ -29,7 +29,7 @@ agent {
     }
     stage('Check Terraform configurations with tflint'){
         steps {
-            sh 'tflint .'
+            sh 'tflint /home/jenkins/workspace/helene-test_master/terraform-aws-inspector'
         }
     }
     stage('Check Terraform configurations with terraform docs'){
