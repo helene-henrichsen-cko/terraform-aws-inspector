@@ -13,7 +13,6 @@ agent {
     }
     stages{
     stage('Run terraform fmt') {
-         {
             def fmtExitCode = sh(returnStatus: true, script: """terraform fmt -check=true""")
             echo("Terraform fmt exit status was ${fmtExitCode}")
             if (fmtExitCode != 0) {
@@ -22,7 +21,6 @@ agent {
                 error("'terraform fmt' failed")
             }
         }
-    }
 
     stage('Terraform Init') {
         steps {
