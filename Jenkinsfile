@@ -31,9 +31,12 @@ agent {
             }
             stage('Check Terraform configurations with tflint'){
                 steps {
-                    // To install tflint
-                    // curl -L -o /tmp/tflint.zip https://github.com/wata727/tflint/releases/download/v0.4.2/tflint_linux_amd64.zip && unzip /tmp/tflint.zip -d /usr/local/bin
                     sh  "tflint"
+                }
+            }
+            stage('Check Terraform configurations with tf docs'){
+                steps {
+                    sh  "if [[ -n \"\$(terraform-docs markdown . -write=false")\ ]]; then echo \"Documentation need to be added, run 'terraform-docs markdown . and add to README.md' to fix\"; exit 1; fi"
                 }
             }
         }
