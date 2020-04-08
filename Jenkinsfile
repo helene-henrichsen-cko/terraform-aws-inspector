@@ -21,7 +21,7 @@ agent {
         parallel {
             stage('Validate Terraform configurations') {
                 steps {
-                    sh 'find . -type f -name "*.tf" -exec dirname {} \\;|sort -u | while read m; do (terraform validate -check-variables=false "$m" && echo "√ $m") || exit 1 ; done'
+                    sh 'find . -type f -name "*.tf" -exec dirname {} \\;|sort -u | while read m; do (terraform validate "$m" && echo "√ $m") || exit 1 ; done'
                 }
             }
             stage('Check if Terraform configurations are properly formatted') {
