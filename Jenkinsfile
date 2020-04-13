@@ -25,12 +25,12 @@ agent {
     }
 //    stage('Check configs with tflint'){
 //        steps {
-//            sh 'tflint .'
+//            sh 'tflint'
 //        }
 //    }
     stage('Check configs with terraform docs'){
         steps {
-            sh 'terraform-docs'
+            sh 'terraform-docs md .'
         }
     }
 }
