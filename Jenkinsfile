@@ -17,24 +17,20 @@ agent {
             sh 'terraform fmt -write=false'
         }
     }
-    stage('Terraform Init') {
+    stage('Validate Terraform configs') {
         steps {
             sh 'terraform init -backend=false -input=false'
-        }
-    }
-    stage('Validate Terraform configurations') {
-        steps {
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
-//    stage('Check Terraform configurations with tflint'){
+//    stage('Check configs with tflint'){
 //        steps {
-//            sh 'tflint /home/jenkins/workspace/helene-test_master/'
+//            sh 'tflint .'
 //        }
 //    }
-    stage('Check Terraform configurations with terraform docs'){
+    stage('Check configs with terraform docs'){
         steps {
-            sh 'terraform-docs md .'
+            sh 'terraform-docs'
         }
     }
 }
