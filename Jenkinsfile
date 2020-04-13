@@ -23,11 +23,11 @@ agent {
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
-//    stage('Check configs with tflint'){
-//        steps {
-//            sh 'tflint'
-//        }
-//    }
+    stage('Check configs with tflint'){
+        steps {
+            sh 'tflint'
+        }
+    }
     stage('Check configs with terraform docs'){
         steps {
             sh 'terraform-docs md .'
