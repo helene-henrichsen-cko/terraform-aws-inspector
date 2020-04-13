@@ -27,11 +27,11 @@ agent {
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
-    stage('Check Terraform configurations with tflint'){
-        steps {
-            sh 'tflint /home/jenkins/workspace/helene-test_master/'
-        }
-    }
+//    stage('Check Terraform configurations with tflint'){
+//        steps {
+//            sh 'tflint /home/jenkins/workspace/helene-test_master/'
+//        }
+//    }
     stage('Check Terraform configurations with terraform docs'){
         steps {
             sh 'terraform-docs md .'
