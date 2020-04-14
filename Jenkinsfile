@@ -25,7 +25,6 @@ agent {
     }
     stage('Check configs with tflint'){
         steps {
-            sh 'TFLINT_LOG=debug tflint'
             sh 'tflint'
         }
     }
