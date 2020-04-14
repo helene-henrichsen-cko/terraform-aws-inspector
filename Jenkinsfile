@@ -28,7 +28,7 @@ agent {
             sh 'if test -f "README.md"; then \
                     echo "README.md exist and" \
                 else \
-                    echo "README.md does not exist" && 'terraform-docs md modules/$d > modules/$d/README.md' && git add "./modules/$d/README.md"
+                    echo "README.md does not exist" && 'terraform-docs md modules/$d > modules/$d/README.md' && git add "./modules/$d/README.md" \
                 fi'
         }
     }
