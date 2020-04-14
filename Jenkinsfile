@@ -25,8 +25,8 @@ agent {
     }
     stage('Check configs with tflint'){
         steps {
-            sh 'tflint'
             sh 'TFLINT_LOG=debug tflint'
+            sh 'tflint'
         }
     }
     stage('Check configs with terraform docs'){
