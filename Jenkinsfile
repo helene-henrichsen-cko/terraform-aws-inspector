@@ -25,8 +25,8 @@ agent {
     }
     stage('Check configs with terraform docs'){
         steps {
-            sh 'if test -f "README.md"; then \
-                    echo "README.md exist and" \
+            sh 'if test -f "README.md"; then
+                echo "README.md exist" \
                 else \
                     echo "README.md does not exist" && 'terraform-docs md modules/$d > modules/$d/README.md' && git add "./modules/$d/README.md" \
                 fi'
