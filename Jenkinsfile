@@ -14,7 +14,7 @@ agent {
     stages{
     stage('Terraform Format Check') {
         steps {
-            sh 'terraform fmt -write=false'
+            sh "if [[ -n \"\$(terraform fmt -write=false)\" ]]; then echo \"Some terraform files need be formatted, run 'terraform fmt' to fix\"; exit 1; fi"
         }
     }
     stage('Validate Terraform configs') {
