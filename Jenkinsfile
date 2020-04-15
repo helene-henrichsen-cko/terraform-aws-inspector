@@ -29,7 +29,7 @@ agent {
                 if [[ -n \"\$(test -f "README.md")\" ]]; {
                     echo \"README.md exists"
                 } else {
-                    echo "README.md does not exist" && terraform-docs md .\"; exit 1; fi'
+                    echo "README.md does not exist" && terraform-docs md .\";
                 }
             }
         }
