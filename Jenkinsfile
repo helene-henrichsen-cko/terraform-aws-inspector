@@ -26,10 +26,10 @@ agent {
     stage('Check Configs with Terraform-docs'){
         steps {
             script {
-                if [[ -n \"\$(test -f "README.md")\" ]]; {
-                    echo \"README.md exists"
+                if (test -f "README.md") {
+                    echo "README.md exists"
                 } else {
-                    echo "README.md does not exist" && terraform-docs md .\";
+                    echo "README.md does not exist" && 'terraform-docs md . '
                 }
             }
         }
