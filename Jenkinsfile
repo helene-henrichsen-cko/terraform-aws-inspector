@@ -25,13 +25,13 @@ agent {
     }
     stage('Check Configs with Terraform-docs'){
         steps {
-            script {
-                if test -f "README.md"; then {
-                    echo "README.md exist"
-                } else {
-                    echo "README.md does not exist, adding it" && terraform-docs md . > README.md && git add "README.md"
-                }
-            }
+            sh(returnStdout: true, script: '''#!/bin/bash
+                if test -f "README.md"; then
+                echo "README.md exist"
+                else
+                echo "README.md does not exist, adding it" && terraform-docs md . > README.md && git add "README.md"
+                fi
+            '''.stripIndent())
         }
     }
     stage('Check Terraform configurations with tflint'){
