@@ -12,9 +12,9 @@ agent {
         TF_IN_AUTOMATION = 1
     }
     stages{
-    stage('Terraform Format Check'){
+    stage('Terraform Pre-Commit w/ tflint, fmt and terraform-docs'){
         steps {
-            sh "if [[ -n \"\$(terraform fmt -write=false)\" ]]; then echo \"Some terraform files need be formatted, run 'terraform fmt' to fix\"; exit 1; fi"
+            sh "if [[ -n \"\$(pre-commit run -a)\" ]]; then echo \"Some terraform files need be formatted, run 'terraform fmt' to fix\"; exit 1; fi"
         }
     }
     stage('Validate Terraform Configs'){
@@ -23,21 +23,6 @@ agent {
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
-    stage('Check Configs with Terraform-docs'){
-        steps {
-            sh '''if test -f "README.md"; then
-                  echo "README.md exist"
-                  else
-                  echo "README.md does not exist, adding it" && 'terraform-docs md . >> README.md' && git add "README.md"
-                  fi
-               '''
-        }
-    }
-    stage('Check Terraform configurations with tflint'){
-    steps {
-        sh  "tflint"
-    }
-  }
 }
     post {
         always{
