@@ -15,7 +15,7 @@ agent {
     stage('Terraform Pre-Commit'){
         steps {
             sh 'pre-commit --version'
-            sh "if [[ -n \"\$(pre-commit run -a --verbose)\" ]]; then echo \"Some terraform files need be formatted, run 'terraform fmt' to fix\"; exit 1; fi"
+            sh 'pre-commit run -a --verbose'
         }
     }
     stage('Validate Terraform Configs'){
