@@ -14,8 +14,6 @@ agent {
     stages{
     stage('Terraform Pre-Commit'){
         steps {
-            sh 'pre-commit --version'
-            sh 'git'
             sh 'pre-commit run -a --verbose'
         }
     }
