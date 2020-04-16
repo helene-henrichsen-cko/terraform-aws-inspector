@@ -12,8 +12,9 @@ agent {
         TF_IN_AUTOMATION = 1
     }
     stages{
-    stage('Terraform Pre-Commit w/ tflint, fmt and terraform-docs'){
+    stage('Terraform Pre-Commit'){
         steps {
+            sh 'pre-commit --version'
             sh "if [[ -n \"\$(pre-commit run -a)\" ]]; then echo \"Some terraform files need be formatted, run 'terraform fmt' to fix\"; exit 1; fi"
         }
     }
@@ -23,6 +24,11 @@ agent {
             sh 'terraform validate "$m" && echo "√ $m"'
         }
     }
+    stage('Check Terraform configurations with tflint'){
+    steps {
+        sh  "tflint"
+    }
+  }
 }
     post {
         always{
