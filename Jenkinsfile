@@ -12,11 +12,11 @@ agent {
     environment {
         TF_IN_AUTOMATION = 1
     }
-           
+
     stages{
         stage('Terraform Pre-Commit'){
             steps {
-                sh 'pre-commit run --verbose'
+                sh 'pre-commit run -a --verbose'
             }
         }
         stage('Validate Terraform Configs'){
