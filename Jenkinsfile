@@ -11,25 +11,9 @@ agent {
 
     environment {
         TF_IN_AUTOMATION = 1
-        GIT_URL        = "https://github.com/helene-henrichsen-cko/terraform-aws-inspector.git"
-        GIT_CRED_ID    = "d2485ba0-33f8-4550-b774-f172055d4d29"
-}
-    stages{
-        stage('Initialize') {
-        steps() {
-            echo 'Starting clone'
-            git(url: "${GIT_URL}",
-                credentialsId: "${GIT_CRED_ID}")
-            withCredentials([usernamePassword(credentialsId: "${GIT_CRED_ID}", passwordVariable: 'GIT_TOKEN', usernameVariable: 'GIT_USER')]) {
-                sh '''
-                    git config --global credential.helper 'store --file ~/.my-credentials'
-                    echo "https://${GIT_USER}:${GIT_TOKEN}@github.com" > ~/.my-credentials
-                    git config --global user.user ${GIT_USER}
-                    git config --global user.email ${GIT_USER}@checkout.com
-                '''
-            }
-        }
     }
+           
+    stages{
         stage('Terraform Pre-Commit'){
             steps {
                 sh 'pre-commit run --verbose'
