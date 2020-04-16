@@ -31,29 +31,28 @@ module "aws_inspector" {
 No examples yet.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
-
-| Name      | Version   |
-|-----------|-----------|
-| terraform | >= 0.12.0 |
-
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| aws | ~> 2.0 |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| Project | Which project this belongs to | `string` | `""` | Yes |
-| Environment | Which environment this will be deployed to | `string` | `""` | Yes |
-| Region | Which region this will be deployed to | `string` | `""` | Yes |
-| Tag | Tags used to identify instances as inspector targets | `string` | `"Inspector"` | No |
-| Schedule  | This is a cron expression for how often Inspector will run | `string` | `"cron(0 0/6 * * ? * )"` | No |
+|------|-------------|------|---------|:-----:|
+| duration | n/a | `number` | `3600` | no |
+| environment | environment to deploy to | `string` | `"test"` | no |
+| product | Product that will benefit the infrastructure | `string` | `"test"` | no |
+| region | AWS region where the VPC will be created | `string` | `"eu-west-1"` | no |
+| schedule | The frequency of the inspector runs. This is a cron expression. | `string` | `"cron(0 0/6 * * ? *)"` | no |
+| tag | Tag for inspector runs | `string` | `"Inspector"` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| tags | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

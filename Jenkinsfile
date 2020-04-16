@@ -14,7 +14,7 @@ agent {
     stages{
     stage('Terraform Pre-Commit'){
         steps {
-            sh 'pre-commit run -a --verbose'
+            sh 'pre-commit run --verbose'
         }
     }
     stage('Validate Terraform Configs'){
