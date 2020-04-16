@@ -11,7 +11,7 @@ agent {
 
     environment {
         TF_IN_AUTOMATION = 1
-        GIT_URL        = "https://github.com/helene-henrichsen-cko/jenkins_backup.git"
+        GIT_URL        = "https://github.com/helene-henrichsen-cko/terraform-aws-inspector.git"
         GIT_CRED_ID    = "d2485ba0-33f8-4550-b774-f172055d4d29"
 }
     stages{
