@@ -19,8 +19,7 @@ agent {
         steps() {
             echo 'Starting clone'
             git(url: "${GIT_URL}",
-                credentialsId: "${GIT_CRED_ID}",
-                )
+                credentialsId: "${GIT_CRED_ID}")
             withCredentials([usernamePassword(credentialsId: "${GIT_CRED_ID}", passwordVariable: 'GIT_TOKEN', usernameVariable: 'GIT_USER')]) {
                 sh '''
                     git config --global credential.helper 'store --file ~/.my-credentials'
