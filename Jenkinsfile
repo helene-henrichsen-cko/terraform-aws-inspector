@@ -16,6 +16,7 @@ agent {
     stages{
         stage('Terraform Pre-Commit'){
             steps {
+                sh 'perl -v'
                 sh 'pre-commit run -a --verbose'
             }
         }
