@@ -1,7 +1,7 @@
 pipeline {
 agent {
     node {
-        label 'terraform-v0.12.24'
+        label 'terraform-v0.12.24-pre-commit'
     }
 }
     options {
