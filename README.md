@@ -31,28 +31,7 @@ module "aws_inspector" {
 No examples yet.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Providers
 
-| Name | Version |
-|------|---------|
-| aws | ~> 2.0 |
-
-## Inputs
-
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
-| duration | n/a | `number` | `3600` | no |
-| environment | environment to deploy to | `string` | `"test"` | no |
-| product | Product that will benefit the infrastructure | `string` | `"test"` | no |
-| region | AWS region where the VPC will be created | `string` | `"eu-west-1"` | no |
-| schedule | The frequency of the inspector runs. This is a cron expression. | `string` | `"cron(0 0/6 * * ? *)"` | no |
-| tag | Tag for inspector runs | `string` | `"Inspector"` | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| tags | n/a |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
