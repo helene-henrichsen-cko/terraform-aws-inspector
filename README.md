@@ -31,6 +31,13 @@ module "aws_inspector" {
 No examples yet.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.12 |
+| aws | ~> 2.0 |
+
 ## Providers
 
 | Name | Version |
@@ -40,7 +47,7 @@ No examples yet.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
 | duration | n/a | `number` | `3600` | no |
 | environment | environment to deploy to | `string` | `"test"` | no |
 | product | Product that will benefit the infrastructure | `string` | `"test"` | no |
