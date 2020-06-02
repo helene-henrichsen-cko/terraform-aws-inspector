@@ -11,3 +11,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Templated file tree
 - Structure to README.md
 - Initial .pre-commit-config for Terraform code
+
+new change
